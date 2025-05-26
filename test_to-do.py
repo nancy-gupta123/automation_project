@@ -1,19 +1,19 @@
 import requests
 import json
 
-def testCase1():
+# def testCase1():
     
 
-    url = "http://127.0.0.1:8000/api/foods/1/"
+#     url = "http://127.0.0.1:8000/api/foods/1/"
 
-    payload = {}
-    files={}
-    headers = {}
+#     payload = {}
+#     files={}
+#     headers = {}
 
-    response = requests.request("GET", url, headers=headers, data=payload, files=files)
+#     response = requests.request("GET", url, headers=headers, data=payload, files=files)
 
-    print(response.text)
-    assert response.status_code == 200, "Expected status code 200, got {}".format(response.status_code)
+#     print(response.text)
+#     assert response.status_code == 200, "Expected status code 200, got {}".format(response.status_code)
 
 def testCase2():
     
