@@ -1,52 +1,49 @@
 import requests
 import json
 
+# Test Case 1: Fetch a single food item by ID
 # def testCase1():
-    
-
 #     url = "http://127.0.0.1:8000/api/foods/1/"
-
-#     payload = {}
-#     files={}
-#     headers = {}
-
-#     response = requests.request("GET", url, headers=headers, data=payload, files=files)
-
-#     print(response.text)
-#     assert response.status_code == 200, "Expected status code 200, got {}".format(response.status_code)
-
-def testCase2():
+#     response = requests.get(url)
     
+#     print("Test Case 1 Response:", response.text)
+#     assert response.status_code == 200, f"Expected status code 200, got {response.status_code}"
 
+# Test Case 2: Create a food item with valid data
+def testCase2():
     url = "http://127.0.0.1:8000/api/foods/"
 
     payload = json.dumps({
-    "name": "veg roll",
-    "price": "100"
+        "name": "veg roll",
+        "price": "100"
     })
     headers = {
-    'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
     }
 
-    response = requests.request("POST", url, headers=headers, data=payload)
+    response = requests.post(url, headers=headers, data=payload)
 
-    print(response.text) 
+    print("Test Case 2 Response:", response.text)
+    assert response.status_code == 201, f"Expected status code 201, got {response.status_code}"
 
-    assert response.status_code == 201, "Expected status code 201, got {}".format(response.status_code)   
-
-
+# Test Case 3: Try to create a food item with missing 'name' field
 def testCase3():
     url = "http://127.0.0.1:8000/api/foods/"
 
     payload = json.dumps({
-    "price": "100"
+        "price": "100"
     })
     headers = {
-    'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
     }
 
-    response = requests.request("POST", url, headers=headers, data=payload)
+    response = requests.post(url, headers=headers, data=payload)
 
-    print(response.text) 
+    print("Test Case 3 Response:", response.text)
+    assert response.status_code == 400, f"Expected status code 400, got {response.status_code}"
 
-    assert response.status_code == 400, "Expected status code 400, got {}".format(response.status_code)
+# Run test cases
+if __name__ == "__main__":
+    testCase1()
+    testCase2()
+    testCase3()
