@@ -33,7 +33,8 @@ jobs:
 
     - name: Run Django server in background
       run: |
-        nohup python manage.py runserver 0.0.0.0:8080 
+        python manage.py runserver 0.0.0.0:8080 & 
+        sleep 15 
         
 
     - name: Run tests with pytest
