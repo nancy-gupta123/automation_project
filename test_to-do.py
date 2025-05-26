@@ -42,8 +42,28 @@ def testCase3():
     print("Test Case 3 Response:", response.text)
     assert response.status_code == 400, f"Expected status code 400, got {response.status_code}"
 
+
+def testCase4():
+    url = "http://localhost:8000/api/orders/"
+
+    payload = json.dumps({
+        "customer": "Alice",
+        "food": 1,  # assuming this ID doesn't cause an error
+        "quantity": "invalid_quantity"  # invalid: should be integer
+    })
+
+    headers = {
+        'Content-Type': 'application/json'
+    }
+
+    response = requests.post(url, headers=headers, data=payload)
+
+    print("Test Case 4 Response:", response.text)
+    assert response.status_code == 400, f"Expected status code 400, got {response.status_code}"    
+
 # Run test cases
 if __name__ == "__main__":
     # testCase1()  # Uncomment to run the first test case
     testCase2()
     testCase3()
+    testCase4()
