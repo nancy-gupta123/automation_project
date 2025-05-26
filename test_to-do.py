@@ -24,7 +24,7 @@ def testCase2():
     response = requests.post(url, headers=headers, data=payload)
 
     print("Test Case 2 Response:", response.text)
-    assert response.status_code == 200, f"Expected status code 201, got {response.status_code}"
+    assert response.status_code == 201, f"Expected status code 201, got {response.status_code}"
 
 # Test Case 3: Try to create a food item with missing 'name' field
 def testCase3():
