@@ -29,8 +29,9 @@ jobs:
       env:
         DJANGO_SETTINGS_MODULE: myproject.settings
       run: |
-        python manage.py migrate
-        pytest
+          python manage.py migrate
+          sleep 15
+          pytest
 
     - name: Run tests with pytest
       env:
