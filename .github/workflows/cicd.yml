@@ -33,7 +33,7 @@ jobs:
 
     - name: Run Django server in background
       run: |
-        python manage.py runserver 0.0.0.0:8080 & 
+        python manage.py runserver 0.0.0.0:8000 & 
         sleep 15 
         
 
