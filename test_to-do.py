@@ -11,7 +11,7 @@ import json
 
 # Test Case 2: Create a food item with valid data
 def testCase2():
-    url = "http://127.0.0.1:8000/api/foods/"
+    url = "http://localhost:8000/api/foods/"
 
     payload = json.dumps({
         "name": "veg roll",
@@ -28,7 +28,7 @@ def testCase2():
 
 # Test Case 3: Try to create a food item with missing 'name' field
 def testCase3():
-    url = "http://127.0.0.1:8000/api/foods/"
+    url = "http://localhost:8000/api/foods/"
 
     payload = json.dumps({
         "price": "100"
